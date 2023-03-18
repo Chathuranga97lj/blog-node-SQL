@@ -4,10 +4,12 @@ dotenv.config();
 import express from "express";
 const app = express();
 
+import postRoutes from "./routes/postRoutes.js";
+
 // middle ware
 app.use(express.json());
 
-app.use("/posts");
+app.use("/posts", postRoutes);
 
 // global error handler
 app.use((err, req, res, next) => {
